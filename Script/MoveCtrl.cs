@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveCtrl : MonoBehaviour
 {
-
+    public GameObject Cube;
     public enum MoveType
     {
         WAY_POINT,
@@ -16,7 +16,7 @@ public class MoveCtrl : MonoBehaviour
     public MoveType moveType = MoveType.WAY_POINT;
 
     //이동속도
-    public float speed = 1.0f;
+    public float speed = 3.0f;
     //회전 시 회전 속도를 조절할 계수
     public float damping = 3.0f;
 
@@ -61,8 +61,6 @@ public class MoveCtrl : MonoBehaviour
             case MoveType.DAYDREAM:
                 break;
         }
-
-        
     }
 
     void MoveWayPoint()
@@ -95,7 +93,19 @@ public class MoveCtrl : MonoBehaviour
             nextIdx = (++nextIdx >= points.Length) ? 1 : nextIdx;
         }
     }
-
-    
- 
+    /*
+    void OnTriggerEnter(Collider col)
+    {
+        //coll.CompareTag("Pond"
+        //coll.gameObject.tag == "Pond"
+        
+        if (col.transform.tag == "Pond")
+        {
+            Debug.Log("Pond");
+            //연못이라면
+            Cube.active = true;
+        }
+        
+    }
+    */
 }

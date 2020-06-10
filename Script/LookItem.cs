@@ -8,6 +8,7 @@ public class LookItem : MonoBehaviour,
                         IPointerExitHandler,    //Pointer Exit 인터페이스
                         IGvrPointerHoverHandler //Pointer Hover 인터페이스
 {
+    //public GameObject Cube;
     public void OnLookItemBox(bool isLookAt)
     {
         Debug.Log(isLookAt);
@@ -26,5 +27,14 @@ public class LookItem : MonoBehaviour,
     public void OnGvrPointerHover(PointerEventData eventData)
     {
         Debug.Log("Pointer Hover !!");
+    }
+    public void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag.Equals("Pond"))
+        {
+            Debug.Log("Pond");
+            //연못이라면
+            //Cube.active = true;
+        }
     }
 }
